@@ -54,38 +54,95 @@ void dijkstra(int start, int end) {
                 cout << " -> ";
             }
         }
-        cout << "\nTotal jarak terpendek: " << dist[end] << "\n";
+        cout << "\nTotal jarak terpendek: " << dist[end] << " meter\n";
     }
 }
 
 int main() {
-    // initialize graph
-    graph.resize(6);
-    graph[0].push_back(make_pair(1, 5)); // edge from node 0 to node 1 with weight 5
-    graph[0].push_back(make_pair(3, 2)); // edge from node 0 to node 3 with weight 2
-    graph[1].push_back(make_pair(0, 5)); // edge from node 1 to node 0 with weight 5
-    graph[1].push_back(make_pair(2, 3)); // edge from node 1 to node 2 with weight 3
-    graph[1].push_back(make_pair(3, 3)); // edge from node 1 to node 3 with weight 3
-    graph[1].push_back(make_pair(4, 1)); // edge from node 1 to node 4 with weight 1
-    graph[2].push_back(make_pair(1, 3)); // edge from node 2 to node 1 with weight 3
-    graph[2].push_back(make_pair(4, 5)); // edge from node 2 to node 4 with weight 5
-    graph[3].push_back(make_pair(0, 2)); // edge from node 3 to node 0 with weight 2
-    graph[3].push_back(make_pair(1, 3)); // edge from node 3 to node 1 with weight 3
-    graph[3].push_back(make_pair(4, 6)); // edge from node 3 to node 4 with weight 6
-    graph[4].push_back(make_pair(1, 1)); // edge from node 4 to node 1 with weight 1
-    graph[4].push_back(make_pair(2, 5)); // edge from node 4 to node 2 with weight 5
-    graph[4].push_back(make_pair(3, 6)); // edge from node 4 to node 3 with weight 6
-    graph[4].push_back(make_pair(5, 4)); // edge from node 4 to node 5 with weight 4
-    graph[5].push_back(make_pair(4, 4)); // edge from node 5 to node 4 with weight 4
+    // inisiasi graph
+    graph.resize(29);
+    graph[0].push_back(make_pair(1, 170)); 
+    graph[1].push_back(make_pair(2, 190));
+    graph[2].push_back(make_pair(3, 250));
+    graph[3].push_back(make_pair(4, 66));
+    graph[4].push_back(make_pair(5, 160));
+    graph[5].push_back(make_pair(6, 97));
+    graph[6].push_back(make_pair(7, 99));
+    graph[8].push_back(make_pair(7, 170));
+    graph[7].push_back(make_pair(9, 94));
+    graph[9].push_back(make_pair(10, 117));
+    graph[10].push_back(make_pair(11, 120));
+    graph[11].push_back(make_pair(12, 170));
+    graph[4].push_back(make_pair(13, 180));
+    graph[13].push_back(make_pair(14, 170));
+    graph[14].push_back(make_pair(15, 120));
+    graph[12].push_back(make_pair(15, 379));
+    graph[11].push_back(make_pair(27, 110));
+    graph[28].push_back(make_pair(27, 548));
+    graph[27].push_back(make_pair(16, 113));
+    graph[16].push_back(make_pair(17, 276));
+    graph[15].push_back(make_pair(17, 280));
+    graph[17].push_back(make_pair(18, 180));
+    graph[18].push_back(make_pair(19, 170));
+    graph[20].push_back(make_pair(17, 110));
+    graph[17].push_back(make_pair(21, 190));
+    graph[19].push_back(make_pair(21, 110));
+    graph[21].push_back(make_pair(22, 120));
+    graph[22].push_back(make_pair(23, 210));
+    graph[23].push_back(make_pair(24, 130));
+    graph[24].push_back(make_pair(25, 800));
+    graph[25].push_back(make_pair(26, 350));
+    graph[26].push_back(make_pair(1, 120));
 
-    // get user input for start and end nodes
+    //graph balikannya
+    graph[1].push_back(make_pair(0, 170)); 
+    graph[2].push_back(make_pair(1, 190));
+    graph[3].push_back(make_pair(2, 250));
+    graph[4].push_back(make_pair(3, 66));
+    graph[5].push_back(make_pair(4, 160));
+    graph[6].push_back(make_pair(5, 97));
+    graph[7].push_back(make_pair(6, 99));
+    graph[7].push_back(make_pair(8, 170));
+    graph[9].push_back(make_pair(7, 94));
+    graph[10].push_back(make_pair(9, 117));
+    graph[11].push_back(make_pair(10, 120));
+    graph[12].push_back(make_pair(11, 170));
+    graph[13].push_back(make_pair(4, 180));
+    graph[14].push_back(make_pair(13, 170));
+    graph[15].push_back(make_pair(14, 120));
+    graph[15].push_back(make_pair(12, 379));
+    graph[27].push_back(make_pair(11, 110));
+    graph[27].push_back(make_pair(28, 548));
+    graph[16].push_back(make_pair(27, 113));
+    graph[17].push_back(make_pair(16, 276));
+    graph[17].push_back(make_pair(15, 280));
+    graph[18].push_back(make_pair(17, 180));
+    graph[19].push_back(make_pair(18, 170));
+    graph[17].push_back(make_pair(20, 110));
+    graph[21].push_back(make_pair(17, 190));
+    graph[21].push_back(make_pair(19, 110));
+    graph[22].push_back(make_pair(21, 120));
+    graph[23].push_back(make_pair(22, 210));
+    graph[24].push_back(make_pair(23, 130));
+    graph[25].push_back(make_pair(24, 800));
+    graph[26].push_back(make_pair(25, 350));
+    graph[1].push_back(make_pair(26, 120));
+
     int start, end;
-    cout << "Masukkan titik awal: ";
+    cout << "-------------------------------------------\n";
+    cout << "Hai selamat datang >_<\n";
+    cout << "-------------------------------------------\n";
+    cout << "Masukkan titik awalnya dong: ";
     cin >> start;
-    cout << "Masukkan titik akhir: ";
+    cout << "-------------------------------------------\n";
+    cout << "Selanjutnya masukkan titik akhir tujuanmu: ";
     cin >> end;
-
+    cout << "-------------------------------------------\n";
+    cout << "Berikut merupakan hasil kalkulasinya\n";
+    cout << "-------------------------------------------\n";
     dijkstra(start, end);
+    cout << "-------------------------------------------\n";
+    cout << "Hati hati dijalannya yaaa >_<\n";
 
     return 0;
 }
