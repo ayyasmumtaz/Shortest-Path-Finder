@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shortest Path Finder</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    #map {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #000;
+      max-width: 100%;
+      max-height: 80vh;
+      overflow: auto;
+      margin: 20px 0;
+    }
+    
+    #map img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    
+    .input-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .input-container label {
+      margin-right: 10px;
+    }
+    
+    .output {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Shortest Path Finder</h1>
+    
+    <div id="map">
+      <img src="maps.png" alt="Map Image">
+    </div>
+    
+    <div class="input-container">
+      <label for="start">Start Node:</label>
+      <input type="text" id="start" />
+    </div>
+    
+    <div class="input-container">
+      <label for="end">End Node:</label>
+      <input type="text" id="end" />
+    </div>
+    
+    <button onclick="findShortestPath()">Find Shortest Path</button>
+    
+    <div class="output" id="output"></div>
+  </div>
+
+  <script>
+    // Function to find the shortest path
+    function findShortestPath() {
+      event.preventDefault();
+      var startNode = document.getElementById("start").value;
+      var endNode = document.getElementById("end").value;
+  
+      // Make a POST request to the server endpoint to get the shortest path
+      fetch('/findPath', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `start=${startNode}&end=${endNode}`
+      })
+        .then(response => response.text())
+        .then(data => {
+          var output = document.getElementById("output");
+          output.textContent = data;
+        })
+        .catch(error => {
+          console.error('An error occurred:', error);
+          var output = document.getElementById("output");
+          output.textContent = 'An error occurred.';
+        });
+    }
+  </script>
+    </body>
+</html>

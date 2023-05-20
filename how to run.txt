@@ -1,0 +1,1 @@
+Klik kanan di dalam folder proyek -> run `node server.js` (kudu punya node js dulu) -> ke localhost:3000 atau bisa di ctrl + klik linknya di terminal -> enjoy
