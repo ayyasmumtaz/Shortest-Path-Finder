@@ -41,9 +41,9 @@ This project is developed and maintained by a team of dedicated individuals from
 
 | Name                           | Student ID   |
 |--------------------------------|--------------|
+| Ayyas Mumtaz Yudha             | G6401211146  |
 | Raka Irzan Alfian              | G6401211034  |
 | Muhammad Irfan Satriya Dewanto | G6401211118  |
-| Ayyas Mumtaz Yudha             | G6401211146  |
 
 Feel free to reach out to any team member if you have questions, suggestions, or feedback regarding the project.
 
