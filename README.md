@@ -39,9 +39,11 @@ The C++ code in this repository provides the necessary functions and classes to 
 
 This project is developed and maintained by a team of dedicated individuals from IPB University:
 
-- Raka Irzan Alfian G6401211034
-- Muhammad Irfan Satriya Dewanto G6401211118
-- Ayyas Mumtaz Yudha G6401211146
+| Name                           | Student ID   |
+|--------------------------------|--------------|
+| Raka Irzan Alfian              | G6401211034  |
+| Muhammad Irfan Satriya Dewanto | G6401211118  |
+| Ayyas Mumtaz Yudha             | G6401211146  |
 
 Feel free to reach out to any team member if you have questions, suggestions, or feedback regarding the project.
 
