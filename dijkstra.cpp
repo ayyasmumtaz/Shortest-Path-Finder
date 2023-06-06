@@ -9,27 +9,30 @@ typedef pair<int, int> pii;
 
 vector<vector<pii>> graph; // adjacency list graph
 
+// Fungsi Dijkstra untuk mencari rute terpendek dari satu titik ke titik lainnya dalam graph
 string dijkstra(int start, int end) {
     int n = graph.size();
-    vector<int> dist(n, INT_MAX);
-    vector<int> prev(n, -1);
-    vector<bool> visited(n, false);
-    priority_queue<pii, vector<pii>, greater<pii>> pq;
+    vector<int> dist(n, INT_MAX); // Array jarak terpendek dari titik awal ke setiap titik
+    vector<int> prev(n, -1); // Array yang menyimpan titik sebelumnya pada rute terpendek
+    vector<bool> visited(n, false); // Array untuk menandai apakah suatu titik sudah dikunjungi atau belum
+    priority_queue<pii, vector<pii>, greater<pii>> pq; // Priority queue untuk memilih titik dengan jarak terpendek
 
-    dist[start] = 0;
-    pq.push(make_pair(0, start));
+    dist[start] = 0; // Jarak dari titik awal ke titik awal adalah 0
+    pq.push(make_pair(0, start)); // Masukkan titik awal ke priority queue dengan jarak 0
 
     while (!pq.empty()) {
-        int u = pq.top().second;
+        int u = pq.top().second; // Ambil titik dengan jarak terpendek dari priority queue
         pq.pop();
 
-        if (visited[u]) continue;
-        visited[u] = true;
+        if (visited[u]) continue; // Jika titik sudah dikunjungi sebelumnya, lewati
+
+        visited[u] = true; // Tandai titik sebagai sudah dikunjungi
 
         for (auto edge : graph[u]) {
-            int v = edge.first;
-            int weight = edge.second;
+            int v = edge.first; // Titik tujuan dari edge saat ini
+            int weight = edge.second; // Bobot edge saat ini
 
+            // Jika ada rute baru yang lebih pendek ke titik tujuan, update jarak dan titik sebelumnya
             if (dist[u] + weight < dist[v]) {
                 dist[v] = dist[u] + weight;
                 prev[v] = u;
@@ -38,9 +41,11 @@ string dijkstra(int start, int end) {
         }
     }
 
+    // Jika tidak ada rute dari start ke end, kembalikan pesan bahwa tidak ada rute
     if (dist[end] == INT_MAX) {
         return "Tidak ada rute dari " + to_string(start) + " ke " + to_string(end) + "\n";
     } else {
+        // Jika ada rute, buat string yang berisi rute terpendek dan total jaraknya
         string result = "Rute terpendek dari " + to_string(start) + " ke " + to_string(end) + ": ";
         int curr = end;
         vector<int> path;
@@ -60,7 +65,7 @@ string dijkstra(int start, int end) {
 }
 
 int main(int argc, char* argv[]) {
-// inisiasi graph
+    // Inisialisasi graph
     graph.resize(29);
     graph[0].push_back(make_pair(1, 170)); 
     graph[1].push_back(make_pair(2, 190));
@@ -95,7 +100,7 @@ int main(int argc, char* argv[]) {
     graph[25].push_back(make_pair(26, 350));
     graph[26].push_back(make_pair(1, 120));
 
-    //graph balikannya
+    // Graph balikannya
     graph[1].push_back(make_pair(0, 170)); 
     graph[2].push_back(make_pair(1, 190));
     graph[3].push_back(make_pair(2, 250));
@@ -134,11 +139,9 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    int start = stoi(argv[1]);
-    int end = stoi(argv[2]);
-    cout << dijkstra(start, end);
+    int start = stoi(argv[1]); // Titik awal dari argumen baris perintah
+    int end = stoi(argv[2]); // Titik akhir dari argumen baris perintah
+    cout << dijkstra(start, end); // Panggil fungsi Dijkstra untuk mencari rute terpendek
 
-    return 0;
-    
     return 0;
 }
